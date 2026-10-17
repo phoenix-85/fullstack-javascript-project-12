@@ -1,39 +1,32 @@
-# Чат (Slack)
+# React + TypeScript + Vite
 
-[![hexlet-check](https://github.com/phoenix-85/fullstack-javascript-project-12/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/phoenix-85/fullstack-javascript-project-12/actions)
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-Напишите real-time приложение на React, используя AJAX, REST, websockets, React (с хуками) + Zustand + TanStack Query + @mantine/form
+Currently, two official plugins are available:
 
-Учебный проект Хекслета: https://ru.hexlet.io/programs/fullstack-javascript
-Как это должно работать: https://files.hexlet.app/a/ose685
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
+## React Compiler
 
-## Стек
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-- JavaScript
+## Expanding the Oxlint configuration
 
-## Установка
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
 
-<!-- Опишите установку: клонирование, зависимости, переменные окружения -->
-
-```bash
-git clone https://github.com/phoenix-85/fullstack-javascript-project-12.git
-cd fullstack-javascript-project-12
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
-## Использование
-
-<!-- Добавьте примеры запуска и запись asciinema — именно это смотрит работодатель -->
-
----
-
-<details>
-<summary>Автоматические тесты Хекслета</summary>
-
-Тесты запускаются на каждый коммит. За запуск отвечает файл `.github/workflows/hexlet-check.yml` — не удаляйте и не переименовывайте ни его, ни репозиторий.
-
-</details>
-
-## О Хекслете
-
-[Хекслет](https://ru.hexlet.io/) — школа программирования: авторские программы обучения с практикой, поддержкой наставников и реальными проектами, которые остаются в резюме. Этот репозиторий — один из таких проектов.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

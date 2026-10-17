@@ -1,0 +1,44 @@
+{
+  "name": "@hexlet/code",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "format": "oxfmt --write \"**/*.{ts,tsx,css}\"",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hexlet/chat-server": "^3.0.0",
+    "@mantine/core": "^9.7.3",
+    "@mantine/form": "^9.7.3",
+    "@mantine/hooks": "^9.7.3",
+    "@mantine/notifications": "^9.7.3",
+    "@tanstack/react-query": "^5.104.3",
+    "debug": "^4.4.3",
+    "i18next": "^26.4.7",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-i18next": "^17.0.21",
+    "react-router-dom": "^7.18.4",
+    "socket.io-client": "^4.8.4",
+    "zustand": "^5.0.15"
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.13",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxc-config-mantine": "^1.0.3",
+    "oxfmt": "^0.73.0",
+    "oxlint": "^1.88.0",
+    "postcss": "^8.5.30",
+    "postcss-preset-mantine": "^1.18.0",
+    "postcss-simple-vars": "^7.0.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  }
+}
