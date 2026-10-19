@@ -3,7 +3,7 @@ import i18next from 'i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { Socket } from 'socket.io-client';
 
-import App from './components/App';
+import App from './app/App';
 import resources from './locales';
 
 const logSocket = debug('chat:socket');

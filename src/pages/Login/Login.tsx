@@ -1,7 +1,11 @@
-import { Button, Card, Container, Group, TextInput } from '@mantine/core';
+import { Button, Card, Container, Group, PasswordInput, TextInput } from '@mantine/core';
 import { isNotEmpty, useForm } from '@mantine/form';
 
+import { useLogin } from '@/hooks/useLogin';
+
 function Login() {
+  const login = useLogin();
+
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: { username: '', password: '' },
@@ -11,7 +15,15 @@ function Login() {
     },
   });
 
-  const handleSubmit = () => console.log('login');
+  const handleSubmit = async (formData: typeof form.values) => {
+    try {
+      await login(formData);
+      form.reset();
+    } catch (error) {
+      form.setFieldValue('password', '');
+      form.setErrors({ username: 'Неправильный логин или пароль' });
+    }
+  };
 
   return (
     <Container size="xs" mt="xl">
@@ -24,7 +36,7 @@ function Login() {
             {...form.getInputProps('username')}
           />
 
-          <TextInput
+          <PasswordInput
             label="Password"
             placeholder="Password"
             mt="md"
@@ -33,9 +45,7 @@ function Login() {
           />
 
           <Group justify="flex-end" mt="md">
-            <Button type="submit" disabled={!form.isValid()}>
-              Отправить
-            </Button>
+            <Button type="submit">Отправить</Button>
           </Group>
         </form>
       </Card>
