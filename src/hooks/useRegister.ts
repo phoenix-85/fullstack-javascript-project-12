@@ -1,12 +1,7 @@
-export const useRegister = () => async (token: object) => {
-  const response = await fetch('/api/v1/signup', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}` },
-  });
+import { createUser } from '@/api/chat';
+import useChatStore from '@/store';
 
-  if (!response.ok) {
-    throw new Error(response.statusText);
-  }
-
-  return response.json();
+export const useRegister = () => async (formData: { username: string; password: string }) => {
+  const { token } = await createUser(formData);
+  useChatStore.setState({ token });
 };

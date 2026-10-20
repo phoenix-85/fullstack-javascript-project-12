@@ -1,4 +1,4 @@
-import { Button, Card, Container, Group, PasswordInput, TextInput } from '@mantine/core';
+import { Button, Card, Group, PasswordInput, TextInput } from '@mantine/core';
 import { isNotEmpty, useForm } from '@mantine/form';
 
 import { useLogin } from '@/hooks/useLogin';
@@ -26,30 +26,28 @@ function Login() {
   };
 
   return (
-    <Container size="xs" mt="xl">
-      <Card withBorder>
-        <form onSubmit={form.onSubmit(handleSubmit)}>
-          <TextInput
-            label="Username"
-            placeholder="Username"
-            key={form.key('username')}
-            {...form.getInputProps('username')}
-          />
+    <Card w={300} withBorder>
+      <form onSubmit={form.onSubmit(handleSubmit)}>
+        <TextInput
+          label="Username"
+          placeholder="Username"
+          key={form.key('username')}
+          {...form.getInputProps('username')}
+        />
 
-          <PasswordInput
-            label="Password"
-            placeholder="Password"
-            mt="md"
-            key={form.key('password')}
-            {...form.getInputProps('password')}
-          />
+        <PasswordInput
+          label="Password"
+          placeholder="Password"
+          mt="md"
+          key={form.key('password')}
+          {...form.getInputProps('password')}
+        />
 
-          <Group justify="flex-end" mt="md">
-            <Button type="submit">Отправить</Button>
-          </Group>
-        </form>
-      </Card>
-    </Container>
+        <Group justify="flex-end" mt="md">
+          <Button type="submit">Войти</Button>
+        </Group>
+      </form>
+    </Card>
   );
 }
 
