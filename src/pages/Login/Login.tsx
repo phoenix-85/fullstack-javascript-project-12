@@ -4,7 +4,7 @@ import { isNotEmpty, useForm } from '@mantine/form';
 import { useLogin } from '@/hooks/useLogin';
 
 function Login() {
-  const login = useLogin();
+  const { mutate: login } = useLogin();
 
   const form = useForm({
     mode: 'uncontrolled',
@@ -15,9 +15,9 @@ function Login() {
     },
   });
 
-  const handleSubmit = async (formData: typeof form.values) => {
+  const handleSubmit = (formData: typeof form.values) => {
     try {
-      await login(formData);
+      login(formData);
       form.reset();
     } catch (error) {
       form.setFieldValue('password', '');

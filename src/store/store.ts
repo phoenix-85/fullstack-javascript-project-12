@@ -1,16 +1,23 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { ChatStoreState } from './types';
+import { ChatStore } from './types';
+
+const initialState = {
+  username: '',
+  token: '',
+  messages: [],
+  activeChannelId: "1",
+};
 
 const persistOptions = { name: 'chat-store' };
 
-const useChatStore = create<ChatStoreState>()(
+const useChatStore = create<ChatStore>()(
   persist(
     (set) => ({
-      token: {},
-      activeChannelId: null,
-      setActiveChannelId: (channelId: number) => set({ activeChannelId: channelId }),
+      ...initialState,
+      setActiveChannelId: (channelId) => set({ activeChannelId: channelId }),
+      addMessage: (message) => set(({ messages }) => ({ messages: [...messages, message] })),
     }),
     persistOptions
   )

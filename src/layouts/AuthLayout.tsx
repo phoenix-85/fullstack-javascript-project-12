@@ -1,22 +1,8 @@
 import { Center } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
-import { useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router';
-
-import { useIsAuth } from '@/hooks/useIsAuth';
-import { useToken } from '@/hooks/useToken';
+import { Outlet } from 'react-router';
 
 function AuthLayout() {
-  const isAuth = useIsAuth();
-  const token = useToken();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuth) {
-      navigate('/', { replace: true });
-    }
-  }, [token]);
-
   return (
     <>
       <header>

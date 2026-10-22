@@ -1,7 +1,17 @@
-import { loginUser } from '@/api/chat';
+import { useMutation } from '@tanstack/react-query';
+import { useNavigate } from 'react-router';
+
+import { loginUser } from '@/api/users';
 import useChatStore from '@/store';
 
-export const useLogin = () => async (formData: { username: string; password: string }) => {
-  const { token } = await loginUser(formData);
-  useChatStore.setState({ token });
+export const useLogin = () => {
+  const navigate = useNavigate();
+
+  return useMutation({
+    mutationFn: loginUser,
+    onSuccess: ({ token }, { username }) => {
+      useChatStore.setState({ token, username });
+      navigate('/', { replace: true });
+    },
+  });
 };
