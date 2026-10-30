@@ -21,12 +21,19 @@ function CreateMessageForm() {
   };
 
   return (
-    <Box bdrs="lg" bg="gray.2" p="xs">
+    <Box bdrs="lg" bg="blue" p={4}>
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <Group justify="space-between">
-          <TextInput name="message" key={form.key('message')} {...form.getInputProps('message')} />
-          <Button bg="#777C91" type="submit" disabled={!form.isValid()}>
-            Send
+          <TextInput
+            autoFocus
+            name="message"
+            w="75%"
+            key={form.key('message')}
+            {...form.getInputProps('message')}
+          />
+
+          <Button bg="black" type="submit" disabled={!form.isValid()}>
+            Отправить
           </Button>
         </Group>
       </form>

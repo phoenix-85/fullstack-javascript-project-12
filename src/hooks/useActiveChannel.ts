@@ -1,6 +1,6 @@
+import { ChannelData } from '@/api/types';
 import useChatStore from '@/store';
 import { selectActiveChannelId } from '@/store/selectors';
-import { ChannelData } from '@/api/types';
 
 export const useActiveChannel = (): [ChannelData['id'], (channelId: ChannelData['id']) => void] => {
   const activeChannelId = useChatStore(selectActiveChannelId);

@@ -12,7 +12,7 @@ export const useSubscribeMessages = () => {
 
     return () => {
       socket.disconnect();
-    }
+    };
   }, []);
 
   useEffect(() => {

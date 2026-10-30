@@ -7,8 +7,8 @@ export const useFetchChannels = () => {
   const token = useToken();
 
   return useQuery({
-    queryKey: ['channels', token],
+    queryKey: ['channels'],
     queryFn: () => fetchChannels(token),
-    staleTime: 1000 * 60 * 0.5,
+    staleTime: 1000 * 60 * 5,
   });
 };

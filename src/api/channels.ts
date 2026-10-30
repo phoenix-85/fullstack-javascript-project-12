@@ -40,7 +40,7 @@ export async function renameChannel(
   channelId: ChannelData['id'],
   name: ChannelData['name'],
   token: string
-): Promise<void> {
+): Promise<ChannelData> {
   const response = await fetch(`/api/v1/channels/${channelId}`, {
     method: 'PATCH',
     headers: {
@@ -53,18 +53,17 @@ export async function renameChannel(
   if (!response.ok) {
     throw new Error(response.statusText);
   }
+
+  return response.json();
 }
 
 export async function removeChannel(
   channelId: ChannelData['id'],
   token: string
-): Promise<ChannelData> {
+): Promise<ChannelData['id']> {
   const response = await fetch(`/api/v1/channels/${channelId}`, {
     method: 'DELETE',
-    headers: {
-      Authorization: `Bearer ${token}`,
-      'Content-Type': 'application/json',
-    },
+    headers: { Authorization: `Bearer ${token}` },
   });
 
   if (!response.ok) {

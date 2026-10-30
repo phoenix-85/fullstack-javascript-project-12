@@ -10,6 +10,7 @@ type ChatState = {
 type ChatStoreActions = {
   setActiveChannelId: (channelId: ChannelData['id']) => void;
   addMessage: (messageData: MessageData) => void;
+  removeMessages: (channelId: ChannelData['id']) => void;
 };
 
 export type ChatStore = ChatState & ChatStoreActions;
