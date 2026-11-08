@@ -1,0 +1,50 @@
+{
+  "ui": {
+    "buttons": {
+      "ok": "ОК",
+      "cancel": "Отмена"
+    }
+  },
+  "channel": {
+    "actions": {
+      "add": "Добавить канал",
+      "rename": "Переименовать канал",
+      "remove": "Удалить канал",
+      "removeTitle": "Удаление канала",
+      "removeConfirm": "Удалить канал {{ name }}?"
+    },
+    "errors": {
+      "exists": "Канал с таким названием уже существует",
+      "hasLength": "Название канала должно быть от {{ min }} до {{ max }} символов"
+
+    },
+    "statuses": {
+      "adding": "Добавление...",
+      "renaming": "Переименование..."
+    }
+  },
+  "message": {
+    "actions": {
+      "send": "Отправить"
+    }
+  },
+  "user": {
+    "actions": {
+      "login": "Войти",
+      "logout": "Выйти",
+      "signup": "Регистрация"
+    },
+    "labels": {
+      "username": "Имя пользователя",
+      "password": "Пароль",
+      "confirmPassword": "Подтверждение пароля"
+    },
+    "errors": {
+      "emptyUsername": "Не заполнено имя пользователя",
+      "emptyPassword": "Не указан пароль",
+      "lengthUsername": "Имя пользователя должен быть от {{ min }} до {{ 20 }} символов",
+      "minLengthPassword": "Пароль должен быть не менее {{ min }} символов",
+      "confirmPassword": "Пароли не совпадают"
+    }
+  }
+}

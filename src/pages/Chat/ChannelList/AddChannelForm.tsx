@@ -5,11 +5,13 @@ import { modals } from '@mantine/modals';
 import { useActiveChannel } from '@/hooks/useActiveChannel';
 import { useCreateChannel } from '@/hooks/useCreateChannel';
 import { useFetchChannels } from '@/hooks/useFetchChannels';
+import { useTranslation } from 'react-i18next';
 
 function AddChannelForm() {
   const [_, setActiveChannel] = useActiveChannel();
   const { mutate: addNewChannel, isPending } = useCreateChannel();
   const { data: channels } = useFetchChannels();
+  const { t } = useTranslation();
 
   const form = useForm({
     mode: 'uncontrolled',
@@ -19,12 +21,14 @@ function AddChannelForm() {
     validate: {
       name: (value) => {
         if (channels?.some((c) => c.name === value)) {
-          return 'Канал с таким названием уже существует';
+          return t('channel.errors.exists');
         }
 
+        const length = { min: 3, max: 20 };
+
         return hasLength(
-          { min: 3, max: 20 },
-          'Название канала должно быть от 3 до 20 символов'
+          length,
+          t('channel.errors.hasLength', length)
         )(value);
       },
     },
@@ -46,7 +50,7 @@ function AddChannelForm() {
 
       <Group justify="flex-end" mt="md">
         <Button type="submit" disabled={isPending}>
-          {isPending ? 'Добавление...' : 'Добавить'}
+          {t(isPending ? 'channel.statuses.adding' : 'channel.action.add')}
         </Button>
       </Group>
     </form>

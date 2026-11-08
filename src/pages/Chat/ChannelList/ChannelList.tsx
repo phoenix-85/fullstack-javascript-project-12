@@ -9,12 +9,14 @@ import { useFetchChannels } from '@/hooks/useFetchChannels';
 
 import AddChannelForm from './AddChannelForm';
 import RenameChannelForm from './RenameChannelForm';
+import { useTranslation } from 'react-i18next';
 
 function ChannelList() {
   const [contextChannel, setContextChannel] = useState<ChannelData>();
   const [activeChannelId, setActiveChannel] = useActiveChannel();
   const { data: channels, error, isLoading, isError, isSuccess } = useFetchChannels();
   const { mutate: removeChannel } = useDeleteChannel();
+  const { t } = useTranslation();
 
   const addChannel = () => modals.open({ children: <AddChannelForm /> });
 
@@ -27,9 +29,9 @@ function ChannelList() {
 
   const deleteChannel = () =>
     modals.openConfirmModal({
-      title: 'Удаление канала',
-      children: <Text>Удалить канал {contextChannel?.name}?</Text>,
-      labels: { confirm: 'Ок', cancel: 'Отмена' },
+      title: t('channel.actions.removeTitle'),
+      children: <Text>{t('channel.actions.removeConfirm', { name: contextChannel?.name })}</Text>,
+      labels: { confirm: t('ui.buttons.ok'), cancel: t('ui.buttons.cancel') },
       onConfirm: () => {
         if (!contextChannel) {
           return;
@@ -72,16 +74,16 @@ function ChannelList() {
           </Menu.ContextMenu>
 
           <Menu.Dropdown>
-            <Menu.Item onClick={renameChannel}>Переименовать</Menu.Item>
+            <Menu.Item onClick={renameChannel}>{t('channel.actions.rename')}</Menu.Item>
 
             <Menu.Item color="red" disabled={!contextChannel?.removable} onClick={deleteChannel}>
-              Удалить
+              {t('channel.actions.remove')}
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>
 
         <Button size="xs" onClick={addChannel}>
-          Добавить канал
+          {t('channel.actions.add')}
         </Button>
       </Stack>
     </Box>

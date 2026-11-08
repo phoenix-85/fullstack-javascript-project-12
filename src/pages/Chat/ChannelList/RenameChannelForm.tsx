@@ -5,10 +5,12 @@ import { modals } from '@mantine/modals';
 import { ChannelData } from '@/api/types';
 import { useFetchChannels } from '@/hooks/useFetchChannels';
 import { useRenameChannel } from '@/hooks/useRenameChannel';
+import { useTranslation } from 'react-i18next';
 
 function RenameChannelForm({ channel }: { channel: ChannelData }) {
   const { data: channels } = useFetchChannels();
   const { mutate: renameChannel, isPending } = useRenameChannel();
+  const { t } = useTranslation();
 
   const form = useForm({
     mode: 'uncontrolled',
@@ -18,12 +20,14 @@ function RenameChannelForm({ channel }: { channel: ChannelData }) {
     validate: {
       name: (value) => {
         if (channels?.some((c) => c.name === value)) {
-          return 'Канал с таким названием уже существует';
+          return t('channel.errors.exists');
         }
 
+        const length = { min: 3, max: 20 };
+
         return hasLength(
-          { min: 3, max: 20 },
-          'Название канала должно быть от 3 до 20 символов'
+          length,
+          t('channel.errors.hasLength', length)
         )(value);
       },
     },
@@ -48,7 +52,7 @@ function RenameChannelForm({ channel }: { channel: ChannelData }) {
 
       <Group justify="flex-end" mt="md">
         <Button type="submit" disabled={isPending}>
-          {isPending ? 'Переименование...' : 'Переименовать'}
+          {t(isPending ? 'channel.statuses.renaming' : 'channel.action.rename')}
         </Button>
       </Group>
     </form>

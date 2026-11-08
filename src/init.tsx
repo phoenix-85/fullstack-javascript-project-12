@@ -5,7 +5,7 @@ import { I18nextProvider, initReactI18next } from 'react-i18next';
 import { Socket } from 'socket.io-client';
 
 import App from './app/App';
-import resources from './locales';
+import resources from '../public/locales';
 
 const logSocket = debug('chat:socket');
 const client = new QueryClient();

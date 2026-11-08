@@ -2,9 +2,12 @@ import { Box, Button, Group, TextInput } from '@mantine/core';
 import { isNotEmpty, useForm } from '@mantine/form';
 
 import { useCreateMessage } from '@/hooks/useCreateMessage';
+import { useTranslation } from 'react-i18next';
 
 function CreateMessageForm() {
   const { mutate: createMessage } = useCreateMessage();
+  const { t } = useTranslation();
+
   const form = useForm({
     mode: 'uncontrolled',
     initialValues: {
@@ -33,7 +36,7 @@ function CreateMessageForm() {
           />
 
           <Button bg="black" type="submit" disabled={!form.isValid()}>
-            Отправить
+            {t('message.actions.send')}
           </Button>
         </Group>
       </form>
