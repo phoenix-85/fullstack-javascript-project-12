@@ -1,4 +1,4 @@
-import { Button, Card, Group, PasswordInput, TextInput } from '@mantine/core';
+import { Button, Card, Group, PasswordInput, Text, TextInput } from '@mantine/core';
 import { isNotEmpty, useForm } from '@mantine/form';
 
 import { useLogin } from '@/hooks/useLogin';
@@ -15,28 +15,41 @@ function Login() {
     },
   });
 
-  const handleSubmit = (formData: typeof form.values) => {
-    try {
-      login(formData);
-      form.reset();
-    } catch (error) {
-      form.setFieldValue('password', '');
-      form.setErrors({ username: 'Неправильный логин или пароль' });
-    }
+  const handleSubmit = () => {
+    const { username, password } = form.getValues();
+
+    login(
+      { username, password },
+      {
+        onSuccess: () => {
+          form.reset();
+        },
+        onError: (error) => {
+          form.setFieldError('username', error.message);
+          form.resetField('password');
+        },
+      }
+    );
   };
 
   return (
-    <Card w={300} withBorder>
+    <Card w={350} withBorder>
+      <Group justify="flex-end" mb="xs">
+        <a href="/signup">
+          <Text size="xs">Зарегистрироваться</Text>
+        </a>
+      </Group>
+
       <form onSubmit={form.onSubmit(handleSubmit)}>
         <TextInput
-          label="Username"
+          label="Имя пользователя"
           placeholder="Username"
           key={form.key('username')}
           {...form.getInputProps('username')}
         />
 
         <PasswordInput
-          label="Password"
+          label="Пароль"
           placeholder="Password"
           mt="md"
           key={form.key('password')}

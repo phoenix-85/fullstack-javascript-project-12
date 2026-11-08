@@ -8,6 +8,8 @@ export const useFetchMessages = () => {
   const token = useToken();
 
   useEffect(() => {
-    fetchMessages(token).then((messages) => useChatStore.setState({ messages }));
+    if (token) {
+      fetchMessages(token).then((messages) => useChatStore.setState({ messages }));
+    }
   }, [token]);
 };

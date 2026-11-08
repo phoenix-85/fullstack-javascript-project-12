@@ -7,6 +7,7 @@ import AuthLayout from '@/layouts/AuthLayout';
 import Chat from '@/pages/Chat';
 import Login from '@/pages/Login';
 import NotFound from '@/pages/NotFound';
+import Signup from '@/pages/Signup';
 
 const router = createBrowserRouter([
   {
@@ -19,10 +20,13 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: 'login',
+    path: '/',
     Component: AuthLayout,
     loader: GuestLoader,
-    children: [{ index: true, Component: Login }],
+    children: [
+      { path: 'login', Component: Login },
+      { path: 'signup', Component: Signup },
+    ],
   },
 ]);
 

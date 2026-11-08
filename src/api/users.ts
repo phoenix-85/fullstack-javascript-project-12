@@ -1,4 +1,4 @@
-import { UserData } from '@/api/types';
+import { UserData } from './types';
 
 export async function createUser(
   formData: UserData
@@ -10,7 +10,12 @@ export async function createUser(
   });
 
   if (!response.ok) {
-    throw new Error(response.statusText);
+    switch (response.status) {
+      case 409:
+        throw new Error('Такой пользователь уже существует');
+      default:
+        throw new Error(response.statusText);
+    }
   }
 
   return response.json();
@@ -24,7 +29,12 @@ export async function loginUser(formData: UserData): Promise<{ token: string }> 
   });
 
   if (!response.ok) {
-    throw new Error(response.statusText);
+    switch (response.status) {
+      case 401:
+        throw new Error('Неправильное имя или пароль');
+      default:
+        throw new Error(response.statusText);
+    }
   }
 
   return response.json();

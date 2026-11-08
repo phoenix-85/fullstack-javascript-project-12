@@ -1,7 +1,8 @@
 import { redirect } from 'react-router';
+import useChatStore from '@/store';
 
 function AuthLoader() {
-  const token = localStorage.getItem('chat-store');
+  const token = useChatStore.getState().token;
   if (!token) {
     throw redirect('/login');
   }
