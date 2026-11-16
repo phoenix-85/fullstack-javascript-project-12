@@ -6,6 +6,7 @@ import { useActiveChannel } from '@/hooks/useActiveChannel';
 import { useCreateChannel } from '@/hooks/useCreateChannel';
 import { useFetchChannels } from '@/hooks/useFetchChannels';
 import { useTranslation } from 'react-i18next';
+import { notifications } from '@mantine/notifications';
 
 function AddChannelForm() {
   const [_, setActiveChannel] = useActiveChannel();
@@ -39,7 +40,16 @@ function AddChannelForm() {
       onSuccess: (newChannel) => {
         form.reset();
         modals.closeAll();
+        notifications.show({
+          message: t('channel.notifications.success.added'),
+        });
         setActiveChannel(newChannel.id);
+      },
+      onError: () => {
+        notifications.show({
+          message: t('channel.notifications.errors.network'),
+          color: 'red',
+        });
       },
     });
   };
@@ -50,7 +60,7 @@ function AddChannelForm() {
 
       <Group justify="flex-end" mt="md">
         <Button type="submit" disabled={isPending}>
-          {t(isPending ? 'channel.statuses.adding' : 'channel.action.add')}
+          {t(isPending ? 'channel.statuses.adding' : 'channel.actions.add')}
         </Button>
       </Group>
     </form>

@@ -6,6 +6,7 @@ import { ChannelData } from '@/api/types';
 import { useFetchChannels } from '@/hooks/useFetchChannels';
 import { useRenameChannel } from '@/hooks/useRenameChannel';
 import { useTranslation } from 'react-i18next';
+import { notifications } from '@mantine/notifications';
 
 function RenameChannelForm({ channel }: { channel: ChannelData }) {
   const { data: channels } = useFetchChannels();
@@ -42,6 +43,15 @@ function RenameChannelForm({ channel }: { channel: ChannelData }) {
       onSuccess: () => {
         form.reset();
         modals.closeAll();
+        notifications.show({
+          message: t('channel.notifications.success.renamed'),
+        });
+      },
+      onError: () => {
+        notifications.show({
+          message: t('channel.notifications.errors.network'),
+          color: 'red',
+        });
       },
     });
   };

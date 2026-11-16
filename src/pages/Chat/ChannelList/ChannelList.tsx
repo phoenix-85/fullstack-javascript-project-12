@@ -10,6 +10,7 @@ import { useFetchChannels } from '@/hooks/useFetchChannels';
 import AddChannelForm from './AddChannelForm';
 import RenameChannelForm from './RenameChannelForm';
 import { useTranslation } from 'react-i18next';
+import { notifications } from '@mantine/notifications';
 
 function ChannelList() {
   const [contextChannel, setContextChannel] = useState<ChannelData>();
@@ -36,9 +37,21 @@ function ChannelList() {
         if (!contextChannel) {
           return;
         }
-        removeChannel(contextChannel.id);
-        setActiveChannel('1');
-        setContextChannel(undefined);
+        removeChannel(contextChannel.id, {
+          onSuccess: () => {
+            notifications.show({
+              message: t('channel.notifications.success.removed'),
+            });
+            setActiveChannel('1');
+            setContextChannel(undefined);
+          },
+          onError: () => {
+            notifications.show({
+              message: t('channel.notifications.errors.network'),
+              color: 'red',
+            });
+          },
+        });
       },
     });
 
