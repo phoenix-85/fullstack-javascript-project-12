@@ -1,8 +1,9 @@
 import { Button, Group } from '@mantine/core';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
+
 import { useLogout } from '@/hooks/useLogout';
 import { useToken } from '@/hooks/useToken';
-import { useTranslation } from 'react-i18next';
 
 function NavBar() {
   const token = useToken();
@@ -15,7 +16,7 @@ function NavBar() {
         <NavLink to="/">Hexlet Chat</NavLink>
         <Button onClick={logout}>{t('user.actions.logout')}</Button>
       </Group>
-    )
+    );
   }
 
   return (

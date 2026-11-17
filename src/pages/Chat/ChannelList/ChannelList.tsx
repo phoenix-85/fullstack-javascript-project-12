@@ -1,6 +1,8 @@
 import { Box, Button, Loader, Menu, Stack, Text } from '@mantine/core';
 import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ChannelData } from '@/api/types';
 import { useActiveChannel } from '@/hooks/useActiveChannel';
@@ -9,8 +11,6 @@ import { useFetchChannels } from '@/hooks/useFetchChannels';
 
 import AddChannelForm from './AddChannelForm';
 import RenameChannelForm from './RenameChannelForm';
-import { useTranslation } from 'react-i18next';
-import { notifications } from '@mantine/notifications';
 
 function ChannelList() {
   const [contextChannel, setContextChannel] = useState<ChannelData>();

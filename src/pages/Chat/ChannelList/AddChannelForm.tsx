@@ -1,12 +1,12 @@
 import { Button, Group, TextInput } from '@mantine/core';
 import { hasLength, useForm } from '@mantine/form';
 import { modals } from '@mantine/modals';
+import { notifications } from '@mantine/notifications';
+import { useTranslation } from 'react-i18next';
 
 import { useActiveChannel } from '@/hooks/useActiveChannel';
 import { useCreateChannel } from '@/hooks/useCreateChannel';
 import { useFetchChannels } from '@/hooks/useFetchChannels';
-import { useTranslation } from 'react-i18next';
-import { notifications } from '@mantine/notifications';
 
 function AddChannelForm() {
   const [_, setActiveChannel] = useActiveChannel();
@@ -27,10 +27,7 @@ function AddChannelForm() {
 
         const length = { min: 3, max: 20 };
 
-        return hasLength(
-          length,
-          t('channel.errors.hasLength', length)
-        )(value);
+        return hasLength(length, t('channel.errors.hasLength', length))(value);
       },
     },
   });

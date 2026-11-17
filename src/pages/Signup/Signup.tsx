@@ -1,8 +1,8 @@
 import { Button, Card, Group, PasswordInput, Text, TextInput } from '@mantine/core';
 import { hasLength, useForm } from '@mantine/form';
+import { useTranslation } from 'react-i18next';
 
 import { useRegister } from '@/hooks/useRegister';
-import { useTranslation } from 'react-i18next';
 
 function Signup() {
   const { mutate: signup } = useRegister();
@@ -12,7 +12,10 @@ function Signup() {
     mode: 'uncontrolled',
     initialValues: { username: '', password: '', confirmPassword: '' },
     validate: {
-      username: hasLength({ min: 3, max: 20 }, t('user.errors.lengthUsername', { min: 3, max: 20 })),
+      username: hasLength(
+        { min: 3, max: 20 },
+        t('user.errors.lengthUsername', { min: 3, max: 20 })
+      ),
       password: hasLength({ min: 6 }, t('user.errors.minLengthPassword', { min: 6 })),
       confirmPassword: (value, values) =>
         value !== values.password ? t('user.errors.confirmPassword') : null,
