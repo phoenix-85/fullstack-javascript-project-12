@@ -10,7 +10,7 @@ import resources from '../public/locales';
 const logSocket = debug('chat:socket');
 const client = new QueryClient();
 
-const init = async (socket: Socket) => {
+export const init = async (socket: Socket) => {
   const i18n = i18next.createInstance();
 
   await i18n.use(initReactI18next).init({
