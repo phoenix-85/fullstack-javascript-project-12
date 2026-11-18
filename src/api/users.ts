@@ -31,7 +31,7 @@ export async function loginUser(formData: UserData): Promise<{ token: string }> 
   if (!response.ok) {
     switch (response.status) {
       case 401:
-        throw new Error('Неправильное имя или пароль');
+        throw new Error('Неверные имя пользователя или пароль');
       default:
         throw new Error(response.statusText);
     }

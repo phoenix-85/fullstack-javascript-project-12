@@ -32,7 +32,7 @@ function ChannelList() {
     modals.openConfirmModal({
       title: t('channel.actions.removeTitle'),
       children: <Text>{t('channel.actions.removeConfirm', { name: contextChannel?.name })}</Text>,
-      labels: { confirm: t('ui.buttons.ok'), cancel: t('ui.buttons.cancel') },
+      labels: { confirm: t('ui.buttons.remove'), cancel: t('ui.buttons.cancel') },
       onConfirm: () => {
         if (!contextChannel) {
           return;

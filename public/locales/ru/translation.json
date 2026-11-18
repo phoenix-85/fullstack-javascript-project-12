@@ -1,7 +1,7 @@
 {
   "ui": {
     "buttons": {
-      "ok": "ОК",
+      "remove": "Удалить",
       "cancel": "Отмена"
     }
   },
@@ -15,14 +15,14 @@
     },
     "errors": {
       "exists": "Канал с таким названием уже существует",
-      "hasLength": "Название канала должно быть от {{ min }} до {{ max }} символов"
+      "hasLength": "От {{ min }} до {{ max }} символов"
 
     },
     "notifications": {
       "success": {
-        "added": "Канал успешно создан",
-        "renamed": "Канал успешно переименован",
-        "removed": "Канал успешно удален"
+        "added": "Канал создан",
+        "renamed": "Канал переименован",
+        "removed": "Канал удален"
       },
       "errors": {
         "network": "Сеть недоступна",
@@ -46,16 +46,16 @@
       "signup": "Регистрация"
     },
     "labels": {
-      "username": "Имя пользователя",
+      "username": "Ваш ник",
       "password": "Пароль",
       "confirmPassword": "Подтверждение пароля"
     },
     "errors": {
       "emptyUsername": "Не заполнено имя пользователя",
       "emptyPassword": "Не указан пароль",
-      "lengthUsername": "Имя пользователя должен быть от {{ min }} до {{ 20 }} символов",
-      "minLengthPassword": "Пароль должен быть не менее {{ min }} символов",
-      "confirmPassword": "Пароли не совпадают"
+      "lengthUsername": "От {{ min }} до {{ max }} символов",
+      "minLengthPassword": "Не менее {{ min }} символов",
+      "confirmPassword": "Пароли должны совпадать"
     }
   }
 }
