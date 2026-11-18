@@ -38,7 +38,7 @@ function Login() {
     <Card w={350} withBorder>
       <Group justify="flex-end" mb="xs">
         <a href="/signup">
-          <Text size="xs">Зарегистрироваться</Text>
+          <Text size="xs">{t('user.actions.signup')}</Text>
         </a>
       </Group>
 
