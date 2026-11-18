@@ -1,13 +1,13 @@
 import { createBrowserRouter } from 'react-router';
 
-import AuthLoader from '@/app/AuthLoader';
-import GuestLoader from '@/app/GuestLoader';
-import AppLayout from '@/layouts/AppLayout';
-import AuthLayout from '@/layouts/AuthLayout';
-import Chat from '@/pages/Chat';
-import Login from '@/pages/Login';
-import NotFound from '@/pages/NotFound';
-import Signup from '@/pages/Signup';
+import AuthLoader from './AuthLoader';
+import GuestLoader from './GuestLoader';
+import AppLayout from '../layouts/AppLayout';
+import AuthLayout from '../layouts/AuthLayout';
+import Chat from '../pages/Chat';
+import Login from '../pages/Login';
+import NotFound from '../pages/NotFound';
+import Signup from '../pages/Signup';
 
 const router = createBrowserRouter([
   {
