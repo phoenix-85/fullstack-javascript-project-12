@@ -4,7 +4,7 @@ import '@mantine/notifications/styles.css';
 import { ModalsProvider } from '@mantine/modals';
 import { RouterProvider } from 'react-router';
 
-import router from '@/app/router';
+import router from './router';
 
 const App = () => (
   <MantineProvider>
