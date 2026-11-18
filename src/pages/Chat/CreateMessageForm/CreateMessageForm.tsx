@@ -2,7 +2,7 @@ import { Box, Button, Group, TextInput } from '@mantine/core';
 import { isNotEmpty, useForm } from '@mantine/form';
 import { useTranslation } from 'react-i18next';
 
-import { useCreateMessage } from '@/hooks/useCreateMessage';
+import { useCreateMessage } from '../../../hooks/useCreateMessage';
 
 function CreateMessageForm() {
   const { mutate: createMessage } = useCreateMessage();

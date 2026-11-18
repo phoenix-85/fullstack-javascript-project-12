@@ -4,10 +4,10 @@ import { notifications } from '@mantine/notifications';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ChannelData } from '@/api/types';
-import { useActiveChannel } from '@/hooks/useActiveChannel';
-import { useDeleteChannel } from '@/hooks/useDeleteChannel';
-import { useFetchChannels } from '@/hooks/useFetchChannels';
+import { ChannelData } from '../../../api/types';
+import { useActiveChannel } from '../../../hooks/useActiveChannel';
+import { useDeleteChannel } from '../../../hooks/useDeleteChannel';
+import { useFetchChannels } from '../../../hooks/useFetchChannels';
 
 import AddChannelForm from './AddChannelForm';
 import RenameChannelForm from './RenameChannelForm';

@@ -2,7 +2,7 @@ import { Button, Card, Group, PasswordInput, Text, TextInput } from '@mantine/co
 import { hasLength, useForm } from '@mantine/form';
 import { useTranslation } from 'react-i18next';
 
-import { useRegister } from '@/hooks/useRegister';
+import { useRegister } from '../../hooks/useRegister';
 
 function Signup() {
   const { mutate: signup } = useRegister();

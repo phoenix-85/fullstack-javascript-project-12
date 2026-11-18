@@ -1,4 +1,4 @@
-import { ChannelData, MessageData, UserData } from '@/api/types';
+import { ChannelData, MessageData, UserData } from '../api/types';
 
 type ChatState = {
   messages: MessageData[];

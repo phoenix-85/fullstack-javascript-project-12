@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-import { ChannelData } from '@/api/types';
+import { ChannelData } from '../api/types';
 
 import { ChatStore } from './types';
 

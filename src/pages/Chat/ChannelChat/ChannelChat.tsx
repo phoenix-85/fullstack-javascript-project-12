@@ -1,8 +1,8 @@
 import { Group, ScrollArea, Stack, Text } from '@mantine/core';
 import { useEffect, useRef } from 'react';
 
-import { useChannelMessages } from '@/hooks/useChannelMessages';
-import { useUsername } from '@/hooks/useUsername';
+import { useChannelMessages } from '../../../hooks/useChannelMessages';
+import { useUsername } from '../../../hooks/useUsername';
 
 function ChannelChat() {
   const messages = useChannelMessages();

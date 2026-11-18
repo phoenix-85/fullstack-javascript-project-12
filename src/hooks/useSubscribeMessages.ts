@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { io } from 'socket.io-client';
 
-import useChatStore from '@/store';
+import useChatStore from '../store';
 
 export const useSubscribeMessages = () => {
   const socket = io();

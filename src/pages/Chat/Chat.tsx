@@ -1,10 +1,10 @@
 import { Box, Splitter, Stack } from '@mantine/core';
 
-import { useFetchMessages } from '@/hooks/useFetchMessages';
-import { useSubscribeMessages } from '@/hooks/useSubscribeMessages';
-import ChannelChat from '@/pages/Chat/ChannelChat';
-import ChannelList from '@/pages/Chat/ChannelList';
-import CreateMessageForm from '@/pages/Chat/CreateMessageForm';
+import { useFetchMessages } from '../../hooks/useFetchMessages';
+import { useSubscribeMessages } from '../../hooks/useSubscribeMessages';
+import ChannelChat from './ChannelChat';
+import ChannelList from './ChannelList';
+import CreateMessageForm from './CreateMessageForm';
 
 function Chat() {
   useFetchMessages();

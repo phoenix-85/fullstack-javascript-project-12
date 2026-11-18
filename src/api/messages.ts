@@ -1,4 +1,4 @@
-import { ChannelData, MessageData } from '@/api/types';
+import { ChannelData, MessageData } from './types';
 
 export async function createMessage(
   body: MessageData['body'],

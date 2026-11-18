@@ -2,7 +2,7 @@ import { Button, Card, Group, PasswordInput, Text, TextInput } from '@mantine/co
 import { isNotEmpty, useForm } from '@mantine/form';
 import { useTranslation } from 'react-i18next';
 
-import { useLogin } from '@/hooks/useLogin';
+import { useLogin } from '../../hooks/useLogin';
 
 function Login() {
   const { mutate: login } = useLogin();

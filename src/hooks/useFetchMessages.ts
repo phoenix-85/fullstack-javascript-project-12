@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { fetchMessages } from '@/api/messages';
-import { useToken } from '@/hooks/useToken';
-import useChatStore from '@/store';
+import { fetchMessages } from '../api/messages';
+import { useToken } from './useToken';
+import useChatStore from '../store';
 
 export const useFetchMessages = () => {
   const token = useToken();

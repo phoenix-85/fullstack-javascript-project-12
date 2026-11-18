@@ -4,9 +4,9 @@ import { modals } from '@mantine/modals';
 import { notifications } from '@mantine/notifications';
 import { useTranslation } from 'react-i18next';
 
-import { useActiveChannel } from '@/hooks/useActiveChannel';
-import { useCreateChannel } from '@/hooks/useCreateChannel';
-import { useFetchChannels } from '@/hooks/useFetchChannels';
+import { useActiveChannel } from '../../../hooks/useActiveChannel';
+import { useCreateChannel } from '../../../hooks/useCreateChannel';
+import { useFetchChannels } from '../../../hooks/useFetchChannels';
 
 function AddChannelForm() {
   const [_, setActiveChannel] = useActiveChannel();

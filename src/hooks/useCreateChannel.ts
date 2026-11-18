@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { createChannel } from '@/api/channels';
-import { useToken } from '@/hooks/useToken';
+import { createChannel } from '../api/channels';
+import { useToken } from './useToken';
 
 export const useCreateChannel = () => {
   const token = useToken();

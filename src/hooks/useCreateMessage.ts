@@ -1,9 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { createMessage } from '@/api/messages';
-import { useActiveChannel } from '@/hooks/useActiveChannel';
-import { useToken } from '@/hooks/useToken';
-import { useUsername } from '@/hooks/useUsername';
+import { createMessage } from '../api/messages';
+import { useActiveChannel } from './useActiveChannel';
+import { useToken } from './useToken';
+import { useUsername } from './useUsername';
 
 export const useCreateMessage = () => {
   const token = useToken();

@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { renameChannel } from '@/api/channels';
-import { useActiveChannel } from '@/hooks/useActiveChannel';
-import { useToken } from '@/hooks/useToken';
+import { renameChannel } from '../api/channels';
+import { useActiveChannel } from './useActiveChannel';
+import { useToken } from './useToken';
 
 export const useRenameChannel = () => {
   const token = useToken();

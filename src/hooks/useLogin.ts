@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router';
 
-import { loginUser } from '@/api/users';
-import useChatStore from '@/store';
+import { loginUser } from '../api/users';
+import useChatStore from '../store';
 
 export const useLogin = () => {
   const navigate = useNavigate();

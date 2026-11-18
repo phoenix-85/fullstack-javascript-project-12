@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
-import { fetchChannels } from '@/api/channels';
-import { useToken } from '@/hooks/useToken';
+import { fetchChannels } from '../api/channels';
+import { useToken } from './useToken';
 
 export const useFetchChannels = () => {
   const token = useToken();

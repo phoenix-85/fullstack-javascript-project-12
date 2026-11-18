@@ -2,7 +2,7 @@ import { Container } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { Outlet } from 'react-router';
 
-import NavBar from '@/components/NavBar';
+import NavBar from '../components/NavBar';
 
 function AppLayout() {
   return (

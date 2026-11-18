@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { removeChannel } from '@/api/channels';
-import { ChannelData } from '@/api/types';
-import { useToken } from '@/hooks/useToken';
-import useChatStore from '@/store';
+import { removeChannel } from '../api/channels';
+import { ChannelData } from '../api/types';
+import { useToken } from './useToken';
+import useChatStore from '../store';
 
 export const useDeleteChannel = () => {
   const token = useToken();

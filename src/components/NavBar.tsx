@@ -2,8 +2,8 @@ import { Button, Group } from '@mantine/core';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 
-import { useLogout } from '@/hooks/useLogout';
-import { useToken } from '@/hooks/useToken';
+import { useLogout } from '../hooks/useLogout';
+import { useToken } from '../hooks/useToken';
 
 function NavBar() {
   const token = useToken();

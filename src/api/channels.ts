@@ -1,4 +1,4 @@
-import { ChannelData } from '@/api/types';
+import { ChannelData } from './types';
 
 export async function fetchChannels(token: string): Promise<ChannelData[]> {
   const response = await fetch('/api/v1/channels', {

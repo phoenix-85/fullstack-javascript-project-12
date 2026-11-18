@@ -1,6 +1,6 @@
 import { redirect } from 'react-router';
 
-import useChatStore from '@/store';
+import useChatStore from '../store';
 
 function GuestLoader() {
   const token = useChatStore.getState().token;
