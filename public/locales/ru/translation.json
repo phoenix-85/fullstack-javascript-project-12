@@ -46,7 +46,7 @@
       "signup": "Регистрация"
     },
     "labels": {
-      "username": "Имя пользователя",
+      "username": "Ваш ник",
       "password": "Пароль",
       "confirmPassword": "Подтверждение пароля"
     },
