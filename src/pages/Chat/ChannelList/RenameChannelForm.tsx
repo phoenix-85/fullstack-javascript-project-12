@@ -59,7 +59,7 @@ function RenameChannelForm({ channel }: { channel: ChannelData }) {
 
       <Group justify="flex-end" mt="md">
         <Button type="submit" disabled={isPending}>
-          {t(isPending ? 'channel.statuses.renaming' : 'channel.action.rename')}
+          {t(isPending ? 'channel.statuses.renaming' : 'channel.actions.rename')}
         </Button>
       </Group>
     </form>

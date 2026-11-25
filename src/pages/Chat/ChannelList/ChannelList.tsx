@@ -68,10 +68,10 @@ function ChannelList() {
       <Stack justify="space-between" h="100%">
         <Menu shadow="md" width={200}>
           <Menu.ContextMenu>
-            <Box>
+            <Stack>
               {isSuccess &&
                 channels?.map((channel) => (
-                  <Text
+                  <Button
                     key={channel.id}
                     bg={channel.id === activeChannelId ? 'white' : 'transparent'}
                     onClick={() => setActiveChannel(channel.id)}
@@ -81,9 +81,9 @@ function ChannelList() {
                     }}
                   >
                     # {channel.name}
-                  </Text>
+                  </Button>
                 ))}
-            </Box>
+            </Stack>
           </Menu.ContextMenu>
 
           <Menu.Dropdown>
